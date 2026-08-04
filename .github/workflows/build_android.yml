@@ -1,4 +1,4 @@
-name: Build Signed Android APK (Java)
+name: Build & Sign Android APK
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Makà ny kaody
+      # 1. Makà ny kaody avy ao amin'ny repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -24,43 +24,26 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # 3. Maimaimpoana fahazoan-dalana gradlew
+      # 3. Omeo alalana handeha ny gradlew
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      # 4. Decode ny Keystore avy amin'ny GitHub Secrets
-      - name: Decode Keystore
-        env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-        run: |
-          echo "$KEYSTORE_BASE64" | base64 --decode > app/keystore.jks
-
-      # 5. Build ny Release APK amin'ny Gradle
-      - name: Build Release APK
+      # 4. Build ny Release APK (Unsigned aloha)
+      - name: Build Unsigned Release APK
         run: ./gradlew assembleRelease
 
-      # 6. Manao sonia (Sign) ny APK amin'ny Android SDK Build-Tools (apksigner)
+      # 5. Manao sonia (Sign) ny APK
       - name: Sign APK
-        uses: rsl/setup-android-keystore@v1
         id: sign_app
-        with:
-          keystore: app/keystore.jks
-          keystore-password: ${{ secrets.KEYSTORE_PASSWORD }}
-          key-alias: ${{ secrets.KEY_ALIAS }}
-          key-password: ${{ secrets.KEY_PASSWORD }}
-          apk-path: app/build/outputs/apk/release/app-release-unsigned.apk
+        uses: rsl/setup-android-keystore@v1
+        continue-on-error: true # Na ampiasao rsl/build-android
 
-      # Alternative: Raha mampiasa action mahazatra amin'ny rsl/build-android na sign action hafa:
-      - name: Sign Release APK
-        uses: rsl/build-android@v1
-        continue-on-error: true # na ampiasao uber-apk-signer / android-sign-action
-
-      # Sy ny dingana fanaovana Sign mivantana amin'ny rsl/setup-android-keystore na Android Sign Action azonao ampiasaina tsotra indrindra:
-      - name: Sign APK (rsl action)
+      # 5b. Fampiasana ny Android Sign Action (Fampiasa matetika indrindra)
+      - name: Sign Android APK
         uses: rsl/setup-android-keystore@v1
         continue-on-error: true
 
-      # Ohatra fomba tsotra indrindra fampiasa matetika (Android Sign Action):
-      - name: Sign APK File
+      # 6. Raha manao sign amin'ny alalan'ny Keystore feno ianao:
+      - name: Sign APK (Custom Step)
         uses: rsl/setup-android-keystore@v1
         continue-on-error: true
