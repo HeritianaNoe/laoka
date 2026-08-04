@@ -1,49 +1,41 @@
-name: Build & Sign Android APK
+name: Build Android APK (Java)
 
 on:
   push:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
-  workflow_dispatch:
+  workflow_dispatch: # Ahafahana mandefa azy amin'ny tanana avy ao amin'ny GitHub UI
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Linux runner no ampiasaina amin'ny Android / Java build
 
     steps:
       # 1. Makà ny kaody avy ao amin'ny repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Amboary ny Java JDK 17
+      # 2. Amboary ny Java JDK (Java 17 no fampiasa amin'ny Android Studio vaovao)
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: 'gradle'
+          cache: 'gradle' # Mampiasa cache mba hanafaingana ny build manaraka
 
-      # 3. Omeo alalana handeha ny gradlew
+      # 3. Omeo alalana handeha ny script gradlew (Executable permission)
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      # 4. Build ny Release APK (Unsigned aloha)
-      - name: Build Unsigned Release APK
+      # 4. Ataovy ny compilation (Build APK Release)
+      - name: Build APK with Gradle
         run: ./gradlew assembleRelease
 
-      # 5. Manao sonia (Sign) ny APK
-      - name: Sign APK
-        id: sign_app
-        uses: rsl/setup-android-keystore@v1
-        continue-on-error: true # Na ampiasao rsl/build-android
-
-      # 5b. Fampiasana ny Android Sign Action (Fampiasa matetika indrindra)
-      - name: Sign Android APK
-        uses: rsl/setup-android-keystore@v1
-        continue-on-error: true
-
-      # 6. Raha manao sign amin'ny alalan'ny Keystore feno ianao:
-      - name: Sign APK (Custom Step)
-        uses: rsl/setup-android-keystore@v1
-        continue-on-error: true
+      # 5. Ampakaro ho Artifact ao amin'ny GitHub ilay APK namboarina
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: app/build/outputs/apk/release/app-release-unsigned.apk
+          retention-days: 7
