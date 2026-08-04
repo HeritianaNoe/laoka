@@ -62,4 +62,12 @@ jobs:
         with:
           name: app-signed-release
           path: app/build/outputs/apk/release/app-release-signed.apk
-          retention-days: 7
+          retention-days: 60
+      # Ampakaro ao amin'ny GitHub Release ilay APK Signed
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: app/build/outputs/apk/release/app-release-signed.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
