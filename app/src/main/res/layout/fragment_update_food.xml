@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".dialog.UpdateFoodFragment">
+
+    <EditText
+        android:id="@+id/txt_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|left"
+        android:paddingStart="5dp"
+        android:background="@drawable/ic_edittext_bg"
+        android:fontFamily="sans-serif"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:autofillHints="Fanazavana"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:overScrollMode="always"
+        android:scrollbarStyle="insideInset"
+        android:scrollHorizontally="false"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>

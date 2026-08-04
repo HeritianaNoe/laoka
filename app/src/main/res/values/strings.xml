@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Laoka</string>
+    <string name="app_org">LakaBe</string>
+    <string name="app_copyright">Mpanoratra © 2024</string>
+    <string name="app_author">RASOLOMANANA Heritiana Noé</string>
+    <string name="app_phone">(+261) 034 10 402 34 - (+261) 032 59 755 76</string>
+    <string name="app_email">rasolomananaheritiana@gmail.com</string>
+    <string name="app_country">ANTANANARIVO - MADAGASIKARA</string>
+    <string name="app_progress">Miandry kely azfd!</string>
+
+    <string name="menu_fady">Fady</string>
+    <string name="menu_heart">Ankafiziko</string>
+    <string name="menu_insert">Hanampy</string>
+    <string name="menu_noted">Hanome naoty</string>
+    <string name="menu_shared">Hizara ity App ity</string>
+    <string name="menu_about">Momba azy</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="teny_fanolorana">
+        Faly manolotra anareo ity fitaovana afahana mitahiry ny karazana laoka ity ny tenako.
+        Ny zavatra rehetra moa izao dia numerisé daholo ka izay no antony
+        nahasintona ahy hanamboatra azy. Hitako manko fa sahirana isika eo amin\'ny
+        fitadiavana izay atao laoka matetika. Tsara marihana fa ny laoka atolotro ato dia mifangaro,
+        izany hoe misy laoka Malagasy ary misy ihany koa ny laoka Vahiny.\n\n
+        Eto ampamaranana dia raha misy ny fanampiana (hafaliam-po) tianareo hanampiana ny mpanoratra dia ireo ambany ireo
+        ny laharany telefoniko afahana mandefa izany na raha misy sosokevitra tianareo haroso entina hanatsarana
+        ity Application ity. Mankasitra!
+    </string>
+
+    <string name="teny_noty">
+        Hankasitrahako tokoa raha mba homenao naoty.
+    </string>
+
+    <string name="teny_mizara">
+        Zarao mba hohitany namana sy ny fianakaviana.
+    </string>
+</resources>

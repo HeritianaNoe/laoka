@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_fady"
+        android:title="@string/menu_fady"
+        android:icon="@drawable/ic_exclamation_circle"
+        app:showAsAction="withText"/>
+
+    <item
+        android:id="@+id/action_heart"
+        android:title="@string/menu_heart"
+        android:icon="@drawable/ic_heart_black"
+        app:showAsAction="withText"/>
+
+    <item
+        android:id="@+id/action_insert"
+        android:title="@string/menu_insert"
+        android:icon="@drawable/ic_circle_dashed_plus"
+        app:showAsAction="withText"/>
+
+    <item
+        android:id="@+id/action_noted"
+        android:title="@string/menu_noted"
+        android:icon="@drawable/ic_note"
+        app:showAsAction="withText"/>
+
+    <item
+        android:id="@+id/action_shared"
+        android:title="@string/menu_shared"
+        android:icon="@drawable/ic_share"
+        app:showAsAction="withText"/>
+
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/menu_about"
+        android:icon="@drawable/ic_info_circle"
+        app:showAsAction="withText"/>
+</menu>

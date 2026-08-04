@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/photo_laoka"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:src="@drawable/not_image"
+            android:scaleType="fitXY"
+            app:shapeAppearanceOverlay="@style/RoundedSquare"
+            tools:ignore="ContentDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/name_laoka"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/photo_laoka"
+            app:layout_constraintEnd_toStartOf="@+id/layout_love"
+            tools:text="Motorcycle" />
+
+        <RelativeLayout
+            android:id="@+id/layout_love"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:id="@+id/heart_laoka"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="4dp"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/not_image"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_start"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@id/photo_laoka"
+            app:layout_constraintEnd_toStartOf="@+id/layout_love"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:gravity="bottom"
+                android:textColor="#888"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:text="Kintana"
+                android:textSize="12sp"/>
+            <ImageView
+                android:id="@+id/start_laoka1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/not_image"/>
+            <ImageView
+                android:id="@+id/start_laoka2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/not_image"/>
+            <ImageView
+                android:id="@+id/start_laoka3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/not_image"/>
+            <ImageView
+                android:id="@+id/start_laoka4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/not_image"/>
+            <ImageView
+                android:id="@+id/start_laoka5"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/not_image"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
