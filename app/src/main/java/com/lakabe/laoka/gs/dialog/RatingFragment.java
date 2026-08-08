@@ -79,7 +79,7 @@ public class RatingFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 Food f = new Food(food.getName(),food.getDesc(),food.getPhoto(),food.getHeart(),rating,food.getCategoryId());
-                food.setId(f.getId());
+                f.setId(food.getId());
                 listener.onRatingSelected(f, pos, view);
                 getDialog().dismiss();
             }
